@@ -55,7 +55,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-with st.form(key='Submit Films'):
+with st.form(key='Submit Films', clear_on_submit=True):
     with st.sidebar:
         st.sidebar.markdown("## Submit Films")
         Name = st.sidebar.text_input("Film Name", key="Name")
@@ -87,11 +87,12 @@ if submit_button:
 
 st.title('Analysing Films Watched by Jojo')
 
-comments = file[['Name', 'Comment']]
+comments = file[['Name', 'Director', 'Comment']]
 comments['Comment'].replace('', np.nan, inplace=True)
 comments.dropna(subset=["Comment"], inplace=True)
 comments_to_display = comments.sample().values.tolist()[0]
-st.info(f"The comment for {comments_to_display[0]} is {comments_to_display[1]}")
+st.info(f'"{comments_to_display[2]}" '
+        f' - {comments_to_display[0]}, {comments_to_display[1]}')
 
 col1, col2 = st.columns(2)
 
