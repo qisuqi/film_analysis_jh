@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from google.oauth2 import service_account
 import gspread
-import random
 
 
 def getgsheet(spreadsheet_url, sheet_num):
