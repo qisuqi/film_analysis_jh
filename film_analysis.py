@@ -38,7 +38,9 @@ highest_rated_film = file.loc[file['Score'] == highest_score, 'Name'].values.tol
 highest_rewatchability = file['Rewatchability'].max()
 highest_rewatchable_film = file.loc[file['Rewatchability'] == highest_rewatchability, 'Name'].values.tolist()
 
-all_genre = [x for x in file['Genre'].unique()] or [x for x in file['Sub-Genre'].unique()]
+all_genre = ['Drama', 'Action', 'Horror', 'Comedy', 'Thriller', 'Sci-fi', 'Romance', 'Western', 'Crime', 'Adventure',
+             'Fantasy', 'Historical', 'War', 'Noir', 'Mystery', 'Gangster', 'Psychological Thriller', 'Rom Com',
+             'Superhero']
 genre = list(sorted(set(filter(None, all_genre))))
 sub_genre = list(sorted(set(filter(None, all_genre))))
 sub_genre.append('N/A')
@@ -64,7 +66,7 @@ with st.form(key='Submit Films'):
         Rewatchability = st.sidebar.number_input("Rewatchability", key="Rewatchability",
                                                  min_value=0.0, max_value=5.0, step=0.5)
         Comment = st.sidebar.text_input("Comment", key="Comment")
-        ShortFilm = st.sidebar.radio('Short Film?', ('Y', 'N'))
+        ShortFilm = st.sidebar.radio('Short Film?', ('N', 'Y'))
         submit_button = st.form_submit_button(label='Submit')
 
 if submit_button:
