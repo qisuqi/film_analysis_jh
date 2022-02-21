@@ -40,10 +40,10 @@ highest_rewatchable_film = file.loc[file['Rewatchability'] == highest_rewatchabi
 
 all_genre = ['Drama', 'Action', 'Horror', 'Comedy', 'Thriller', 'Sci-fi', 'Romance', 'Western', 'Crime', 'Adventure',
              'Fantasy', 'Historical', 'War', 'Noir', 'Mystery', 'Gangster', 'Psychological Thriller', 'Rom Com',
-             'Superhero']
+             'Superhero', 'Anime']
 genre = list(sorted(set(filter(None, all_genre))))
 sub_genre = list(sorted(set(filter(None, all_genre))))
-sub_genre.append('N/A')
+sub_genre.insert(0, 'N/A')
 
 st.set_page_config(
      layout="wide",
